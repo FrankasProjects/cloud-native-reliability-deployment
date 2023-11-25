@@ -1,6 +1,6 @@
 # Review Protocol: Systematic Literature Review - Identifying common cloud cost and purchasing models
 
-In the context of the masters thesis *Evaluating Cost Implications of Cloud-Native Application Characteristics With a Focus on Reliability Aspects* a Systematic literature review (SLR) was conducted to derive common cloud costs, as well as purchasing models used by Cloud service providers (CSPs). The SLR follows the procedure of Kitchenham et al. [1]. The following sections will provide the detailed steps, including search strings, inclusion & exclusion criteria, as well as an overview of the final literature. 
+In the context of the masters' thesis *Evaluating Cost Implications of Cloud-Native Application Characteristics With a Focus on Reliability Aspects* a Systematic literature review (SLR) was conducted to derive common cloud costs, as well as purchasing models used by Cloud service providers (CSPs). The SLR follows the procedure of Kitchenham et al. [1]. The following sections will provide the detailed steps, including search strings, inclusion & exclusion criteria, as well as an overview of the final literature. 
 
 **Table of content:**
 
@@ -14,19 +14,18 @@ In the context of the masters thesis *Evaluating Cost Implications of Cloud-Nati
      3.2. [Abstract-based Filtering](#item-eight)  
      3.3. [Full-text-based Filtering](#item-nine)  
 4. [Snowballing](#item-ten)
-4. [Full-text based Filtering (Detailed Analysis)](#item-eleven)
-
+5. [Full-text-based Filtering (Detailed Analysis)](#item-eleven)
 
 
 <a id="item-one"></a>
 
-## Search Procedure
+## 1. Search Procedure
 
 Based on a first unstructured literature search and research articles in the cloud cost area, a search string was developed. Depending on the database used, the search string was adapted according to the search criteria. The following sections display the string, search procedure, and the results for the three databases ACM, IEEE Xplore, and SpringerLink. 
 
  <a id="item-two"></a>
 
-### ACM Digital Library
+### 1.1 ACM Digital Library
 
 > [[Abstract: "cloud-computing"] OR [Abstract: "cloud-native"]] AND   
 > [[Abstract: "cost-analysis"] OR [Abstract: "cost evaluation"]   
@@ -47,7 +46,7 @@ Based on a first unstructured literature search and research articles in the clo
 
  <a id="item-three"></a>
 
-### IEEE Xplore
+### 1.2 IEEE Xplore
 
 > (("Abstract":"cloud computing") OR ("Abstract":"cloud-native")) AND   
 > (("Abstract":"cost analysis") OR ("Abstract":"cost evaluation")   
@@ -64,7 +63,7 @@ Based on a first unstructured literature search and research articles in the clo
 
  <a id="item-four"></a>
 
-### SpringerLink
+### 1.3 SpringerLink
 
 > 1. with the exact phrase: cost analysis, where the title contains: cloud computing
 
@@ -108,7 +107,7 @@ Based on a first unstructured literature search and research articles in the clo
 
 <a id="item-five"></a>
 
-## Selection Criteria
+## 2. Selection Criteria
 According to Kitchenham et al. initial, more liberally study selection criteria are developed with the focus of removing articles that do not adhere to the scientific standard, are duplicates, or not within the investigated timeframe. Content criteria cover the target literature, but are further refined through the inclusion and exclusion criteria developed iteratively in the next section. 
 
 The study selection criteria include the following articles: 
@@ -124,15 +123,17 @@ The study selection criteria exclude the following articles:
 
 Total of 697 Articles (applied criteria directly at search: year, peer-reviewed)  
 Result: After removing 58 duplicates: 697-58 = 639 articles
+ResultSet (with duplicates): [1_combined_databases_unfiltered](https://github.com/FrankasProjects/cloud-native-reliability-deployment/blob/main/Systematic%20Literature%20Review/ResultSets/1_combined_databases_unfiltered.csv)
+ResultSet (without duplicates): [3_prepared_dataset](https://github.com/FrankasProjects/cloud-native-reliability-deployment/blob/main/Systematic%20Literature%20Review/ResultSets/3_prepared_dataset.csv)
 
 <a id="item-six"></a>
 
-## Inclusion & Exclusion Criteria
+## 3. Inclusion & Exclusion Criteria
 Inclusion and exclusion criteria are iteratively developed by first conducting a title and metadata based scan, followed by an abstract scan, and concluded by the full-text scan. All 3 steps, including the derived critera as well as the results are displayed in the following.  
 
 <a id="item-seven"></a>
 
-### Title-based filtering
+### 3.1 Title-based filtering
 During this step part of the study selection criteria were applied in addition to a first topic-related based filtering.  
 The articles matching the following criteria were removed from the resultset:
 - Posters, keynotes, workshops and informal articles
@@ -140,10 +141,11 @@ The articles matching the following criteria were removed from the resultset:
 - Conference to journal extensions (keeping one version)
 
 This step removed 130 articles, which results in 509 remaining articles. 
+ResultSet: [4_title_based_filtering](https://github.com/FrankasProjects/cloud-native-reliability-deployment/blob/main/Systematic%20Literature%20Review/ResultSets/4_title_based_filtering.csv)
 
 <a id="item-eight"></a>
 
-### Abstract-based filtering
+### 3.2 Abstract-based filtering
 During this step a more content-related selection was conducted that excluded the following types of articles:
 - Articles which propose new pricing mechanisms, such as dynamic and auction-based mechanisms, or propose approaches to maximize profit on CSP or customer side through **adaptions** of pricing mechanisms (not related to existing mechanisms)
 - Articles that focus on routing, networking, and more hardware-related topics and that include cost factors besides the cloud pricing mechanisms
@@ -151,10 +153,11 @@ During this step a more content-related selection was conducted that excluded th
 - Articles that investigate the cloud provider market from an economical perspective and thus focus on economic phenomena and not on cloud pricing strategies
 
 This step removed 419 articles, which results in 90 remaining articles. 
+ResultSet: [5_abstract_based_filtering](https://github.com/FrankasProjects/cloud-native-reliability-deployment/blob/main/Systematic%20Literature%20Review/ResultSets/5_abstract_based_filtering.csv)
 
 <a id="item-nine"></a>
 
-### Full-text filtering
+### 3.3 Full-text filtering
 During this step, articles were removed based on their full-text. The most common criteria for articles to be removed from the resultset were the follwoing:
 - Articles that were developing their own approach on optimizing cloud costs for either the provider or consumer side 
 - Articles that were listing specific cloud costs, for example for EC2 instances, but do not provide information about the price composition, and are therefore outdated
@@ -162,17 +165,20 @@ During this step, articles were removed based on their full-text. The most commo
 Additioally, the table below displays all articles scanned in this step and provides a short explanation on their inclusion / removal. 
 
 This step removed 51 articles, which results in 39 remaining articles. 
+ResultSet (.bib): [6_full_text_based_filtering](https://github.com/FrankasProjects/cloud-native-reliability-deployment/blob/main/Systematic%20Literature%20Review/ResultSets/6_full_text_based_filtering.bib)
 
 <a id="item-ten"></a>
 
-## Snowballing
+## 4. Snowballing
 Based on the resultset of 39 articles, a forward and backward search was conducted that discovered 4 additional articles. 
 
 The final resultset consists of 43 articles.
+ResultSet: [7_snowballing](https://github.com/FrankasProjects/cloud-native-reliability-deployment/blob/main/Systematic%20Literature%20Review/ResultSets/7_snowballing.csv)
+ResultSet (.bib): [8_final_literatureset](https://github.com/FrankasProjects/cloud-native-reliability-deployment/blob/main/Systematic%20Literature%20Review/ResultSets/8_final_literatureset.bib)
 
 <a id="item-eleven"></a>
 
-## Full-text-based filtering (Detailed Analysis)
+## 5. Full-text-based filtering (Detailed Analysis)
 This table diplays all papers scanned within step x and provides the reason for inclusion / removal.  
 The first column represents for each articles its position within all articles / its position of included or excluded articles.  
 
@@ -233,3 +239,6 @@ Number / (Included / Excluded) | Author | Title | Year | Publication Type | Cont
 | 53 / 27|  Li et al. | Enabling Cloud Service Reservation with Derivatives and Yield Management | 2009 | Conference | The research article presents an approach to TCO and Utilization cost calculation. | No | The cost analysis is considered holistically and many factors such as power consumption, maintenance costs, etc. are also evaluated, which is outside the scope of the work.  |
 | 54 / 28|  Villamizar et al. |E-Clouds: A SaaS Marketplace for Scientific Computing | 2012 | Conference | T | No |   |
 | 55 / 29|  Dhirani et al. | Can IoT escape Cloud QoS and Cost Pitfalls | 2018 | Conference | | No |  |
+
+
+[1]
