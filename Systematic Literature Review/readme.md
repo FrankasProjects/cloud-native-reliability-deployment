@@ -2,7 +2,7 @@
 
 In the context of the masters' thesis *Evaluating Cost Implications of Cloud-Native Application Characteristics With a Focus on Reliability Aspects* a Systematic literature review (SLR) was conducted to derive common cloud costs, as well as purchasing models used by Cloud service providers (CSPs). The SLR follows the procedure of Kitchenham et al. [1]. The following sections will provide the detailed steps, including search strings, inclusion & exclusion criteria, as well as an overview of the final literature. 
 
-**Table of content:**
+**Table of content**
 
  1. [Search Procedure](#item-one)  
      1.1. [ACM Digital Library](#item-two)  
@@ -122,8 +122,8 @@ The study selection criteria exclude the following articles:
 - Informal articles such as keynotes, posters, workshops  
 
 Total of 697 Articles (applied criteria directly at search: year, peer-reviewed)  
-Result: After removing 58 duplicates: 697-58 = 639 articles
-ResultSet (with duplicates): [1_combined_databases_unfiltered](https://github.com/FrankasProjects/cloud-native-reliability-deployment/blob/main/Systematic%20Literature%20Review/ResultSets/1_combined_databases_unfiltered.csv)
+Result: After removing 58 duplicates: 697-58 = 639 articles  
+ResultSet (with duplicates): [1_combined_databases_unfiltered](https://github.com/FrankasProjects/cloud-native-reliability-deployment/blob/main/Systematic%20Literature%20Review/ResultSets/1_combined_databases_unfiltered.csv)  
 ResultSet (without duplicates): [3_prepared_dataset](https://github.com/FrankasProjects/cloud-native-reliability-deployment/blob/main/Systematic%20Literature%20Review/ResultSets/3_prepared_dataset.csv)
 
 <a id="item-six"></a>
@@ -140,7 +140,7 @@ The articles matching the following criteria were removed from the resultset:
 - Articles, where the title indicates that the focus is on cloud offerings apart from the public cloud, e.g., hybrid or private cloud
 - Conference to journal extensions (keeping one version)
 
-This step removed 130 articles, which results in 509 remaining articles. 
+This step removed 130 articles, which results in 509 remaining articles.   
 ResultSet: [4_title_based_filtering](https://github.com/FrankasProjects/cloud-native-reliability-deployment/blob/main/Systematic%20Literature%20Review/ResultSets/4_title_based_filtering.csv)
 
 <a id="item-eight"></a>
@@ -152,7 +152,7 @@ During this step a more content-related selection was conducted that excluded th
 - Articles that were analysing the TCO from the CSPs point of view, and therefore provide insights on the occuring costs of the CSP, suche as hardware, electricity, cooling, etc.
 - Articles that investigate the cloud provider market from an economical perspective and thus focus on economic phenomena and not on cloud pricing strategies
 
-This step removed 419 articles, which results in 90 remaining articles. 
+This step removed 419 articles, which results in 90 remaining articles.   
 ResultSet: [5_abstract_based_filtering](https://github.com/FrankasProjects/cloud-native-reliability-deployment/blob/main/Systematic%20Literature%20Review/ResultSets/5_abstract_based_filtering.csv)
 
 <a id="item-nine"></a>
@@ -164,7 +164,7 @@ During this step, articles were removed based on their full-text. The most commo
 
 Additioally, the table below displays all articles scanned in this step and provides a short explanation on their inclusion / removal. 
 
-This step removed 51 articles, which results in 39 remaining articles. 
+This step removed 51 articles, which results in 39 remaining articles.   
 ResultSet (.bib): [6_full_text_based_filtering](https://github.com/FrankasProjects/cloud-native-reliability-deployment/blob/main/Systematic%20Literature%20Review/ResultSets/6_full_text_based_filtering.bib)
 
 <a id="item-ten"></a>
@@ -172,8 +172,8 @@ ResultSet (.bib): [6_full_text_based_filtering](https://github.com/FrankasProjec
 ## 4. Snowballing
 Based on the resultset of 39 articles, a forward and backward search was conducted that discovered 4 additional articles. 
 
-The final resultset consists of 43 articles.
-ResultSet: [7_snowballing](https://github.com/FrankasProjects/cloud-native-reliability-deployment/blob/main/Systematic%20Literature%20Review/ResultSets/7_snowballing.csv)
+The final resultset consists of 43 articles.  
+ResultSet: [7_snowballing](https://github.com/FrankasProjects/cloud-native-reliability-deployment/blob/main/Systematic%20Literature%20Review/ResultSets/7_snowballing.csv)  
 ResultSet (.bib): [8_final_literatureset](https://github.com/FrankasProjects/cloud-native-reliability-deployment/blob/main/Systematic%20Literature%20Review/ResultSets/8_final_literatureset.bib)
 
 <a id="item-eleven"></a>
