@@ -35,7 +35,7 @@ To connect to the cluster execute: ``aws eks --region us-east-2 update-kubeconfi
 
 ## Deploy the TeaStore
 
-To deploy the TeaStore using an NLB run: ``kubectl create -f kubectl create -f TeaStore\teastore-alb.yaml``. 
+To deploy the TeaStore using an NLB run: ``kubectl create -f kubectl create -f TeaStore\teastore-alb.yaml``.   
 To deploy the TeaStore using an ALB run: ``kubectl create -f kubectl create -f TeaStore\teastore-nlb.yaml``. 
 
 ### Access
@@ -46,23 +46,12 @@ To deploy the TeaStore using an ALB run: ``kubectl create -f kubectl create -f T
 ### Cleanup
 
 In order to delete the application, as well as the terraform cluster conduct:
-1. `` kubectl delete -f  filename.yaml ``. This removes the TeaStore from the cluster. 
+1. `` kubectl delete -f  TeaStore\teastore-alb.yaml `` or `` kubectl delete -f  TeaStore\teastore-nlb.yaml ``. This removes the TeaStore from the cluster. 
 2. ``Terraform destroy`` confirm with ``yes``. This may take up to 20 min. 
-
-### Access
-
-1. via kubectl: get information about cluster and services via: ``kubectl get all -n teastore-namespace``
-2. get endpoint via: ``kubectl get ingress/ingress-teastore -n teastore-namespace``. External IP of teastore-webui is reachable via the internet (after provisioning the services the load balancer takes a couple of minutes to spin up and become active (up to 10 minutes)).
-
-### Cleanup
-
-In order to delete the application, as well as the terraform cluster conduct:
-1. `` kubectl delete -f {$pathto}teastore-alb.yaml ``. This removes the TeaStore from the cluster.
-2. ``Terraform destroy`` confirm with ``yes``. This may take up to 20 min. todo terraform state ist
 
 
 **NOTE**  
-If the application is not removed via ``kubectl delete`` before ``terraform destroy`` is called, Terraform is not able to delete all resources. The teastore.yaml creates a resource of type load balancer which is connected to subnets within the VPC but not managed by terraform. Terraform will be unable to remove the subnets and the load balancer has to be removed via the console.
+If the application is not removed via ``kubectl delete`` before ``terraform destroy`` is called, Terraform is not able to delete all resources. The teastore.yaml triggers the creation of a resource of type load balancer which is connected to subnets within the VPC but not managed by terraform. Terraform will be unable to remove the subnets and the load balancer has to be removed via the console.
 
 [1] https://github.com/DescartesResearch/TeaStore
 
@@ -76,7 +65,4 @@ If the application is not removed via ``kubectl delete`` before ``terraform dest
 <!--  kubectl create -f C:\Users\frank\Dokumente\Master\Thesis\mastersthesis\Code\teastore\teastore-hpa.yaml -->
 <!-- kubectl create -f C:\Users\frank\Dokumente\Master\Thesis\mastersthesis\Code\teastore\teastore-health.yaml -->
 <!-- kubectl create -f C:\Users\frank\Dokumente\Master\Thesis\mastersthesis\Code\teastore\teastore-health.yaml -->
-
-
-kubectl create -f TeaStore\teastore-alb.yaml
 
