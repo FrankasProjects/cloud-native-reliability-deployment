@@ -1,0 +1,116 @@
+{
+	"Name": "Baseline Architecture + ALB",
+	"Total Cost": {
+		"monthly": "515.17",
+		"upfront": "0.00",
+		"12 months": "6182.04"
+	},
+	"Metadata": {
+		"Currency": "USD",
+		"Locale": "en_US",
+		"Created On": "18.11.2023",
+		"Legal Disclaimer": "AWS Pricing Calculator provides only an estimate of your AWS fees and doesn't include any taxes that might apply. Your actual fees depend on a variety of factors, including your actual usage of AWS services.",
+		"Share Url": "https://calculator.aws/#/estimate?id=99243f0422287237b00f582f5211eb1d9e069731"
+	},
+	"Groups": {
+		"Services": [
+			{
+				"Service Name": "Network Address Translation (NAT) Gateway",
+				"Description": "VPC",
+				"Region": "US East (Ohio)",
+				"Status": "",
+				"Service Cost": {
+					"monthly": "125.55",
+					"upfront": "0.00",
+					"12 months": "1506.60"
+				},
+				"Properties": {
+					"Number of NAT Gateways": "3"
+				}
+			},
+			{
+				"Service Name": "Data Transfer",
+				"Description": "VPC",
+				"Region": "US East (Ohio)",
+				"Status": "",
+				"Service Cost": {
+					"monthly": "225.28",
+					"upfront": "0.00",
+					"12 months": "2703.36"
+				},
+				"Properties": {
+					"DT Inbound: Internet": "2 TB per month",
+					"DT Outbound: Internet": "2 TB per month",
+					"DT Intra-Region:": "2 TB per month",
+					"Data transfer cost": "225.28"
+				}
+			},
+			{
+				"Service Name": "Amazon EKS",
+				"Description": "Cluster",
+				"Region": "US East (Ohio)",
+				"Status": "",
+				"Service Cost": {
+					"monthly": "73.00",
+					"upfront": "0.00",
+					"12 months": "876.00"
+				},
+				"Properties": {
+					"Number of EKS Clusters": "1"
+				}
+			},
+			{
+				"Service Name": "Amazon EC2 ",
+				"Description": "Nodes",
+				"Region": "US East (Ohio)",
+				"Status": "",
+				"Service Cost": {
+					"monthly": "51.55",
+					"upfront": "0.00",
+					"12 months": "618.62"
+				},
+				"Properties": {
+					"Tenancy": "Shared Instances",
+					"Operating system": "Linux",
+					"Workload": "Consistent, Number of instances: 3",
+					"Advance EC2 instance": "t3.small",
+					"Pricing strategy": "On-Demand Utilization: 100 %Utilized/Month",
+					"Enable monitoring": "disabled",
+					"EBS Storage amount": "20 GB",
+					"DT Inbound: Not selected": "0 TB per month",
+					"DT Outbound: Not selected": "0 TB per month",
+					"DT Intra-Region:": "0 TB per month"
+				}
+			},
+			{
+				"Service Name": "Application Load Balancer",
+				"Description": "Load Balancer",
+				"Region": "US East (Ohio)",
+				"Status": "",
+				"Service Cost": {
+					"monthly": "39.79",
+					"upfront": "0.00",
+					"12 months": "477.48"
+				},
+				"Properties": {
+					"Number of Application Load Balancers": "1"
+				}
+			},
+			{
+				"Service Name": "Amazon Elastic IP",
+				"Description": "Elastic IP",
+				"Region": "US East (Ohio)",
+				"Status": "",
+				"Service Cost": {
+					"monthly": "0.00",
+					"upfront": "0.00",
+					"12 months": "0.00"
+				},
+				"Properties": {
+					"Number of EC2 instances": "3",
+					"Number of EIPs per instance": "1"
+				}
+			}
+		]
+	}
+}

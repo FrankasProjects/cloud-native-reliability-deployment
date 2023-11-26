@@ -1,0 +1,97 @@
+{
+	"Name": "Availability",
+	"Total Cost": {
+		"monthly": "314.94",
+		"upfront": "0.00",
+		"12 months": "3779.28"
+	},
+	"Metadata": {
+		"Currency": "USD",
+		"Locale": "en_US",
+		"Created On": "18.11.2023",
+		"Legal Disclaimer": "AWS Pricing Calculator provides only an estimate of your AWS fees and doesn't include any taxes that might apply. Your actual fees depend on a variety of factors, including your actual usage of AWS services.",
+		"Share Url": "https://calculator.aws/#/estimate?id=b43920edf159a5a15ccba98d4cc06855a450e64d"
+	},
+	"Groups": {
+		"Services": [
+			{
+				"Service Name": "Amazon API Gateway",
+				"Description": "API Gateway",
+				"Region": "US East (Ohio)",
+				"Status": "",
+				"Service Cost": {
+					"monthly": "146.35",
+					"upfront": "0.00",
+					"12 months": "1756.20"
+				},
+				"Properties": {
+					"REST API request units": "thousands",
+					"Cache memory size (GB)": "6.1",
+					"WebSocket message units": "thousands",
+					"HTTP API requests units": "thousands",
+					"Average size of each request": "34 KB",
+					"Average message size": "32 KB",
+					"Requests": "100 per month"
+				}
+			},
+			{
+				"Service Name": "AWS Web Application Firewall (WAF)",
+				"Description": "Web ACLS (Load Shedding + Rate Limiting)",
+				"Region": "US East (Ohio)",
+				"Status": "",
+				"Service Cost": {
+					"monthly": "14.60",
+					"upfront": "0.00",
+					"12 months": "175.20"
+				},
+				"Properties": {
+					"Number of Web Access Control Lists (Web ACLs) utilized": "2 per month",
+					"Number of Rules added per Web ACL": "2 per month",
+					"Number of Rule Groups per Web ACL": "0 per month",
+					"Number of Rules inside each Rule Group": "0 per month",
+					"Number of Managed Rule Groups per Web ACL": "0 per month"
+				}
+			},
+			{
+				"Service Name": "Amazon RDS for MariaDB",
+				"Description": "Data Replication with RDS",
+				"Region": "US East (Ohio)",
+				"Status": "",
+				"Service Cost": {
+					"monthly": "49.96",
+					"upfront": "0.00",
+					"12 months": "599.52"
+				},
+				"Properties": {
+					"Storage volume": "General Purpose SSD (gp2)",
+					"Storage amount": "20 GB",
+					"Quantity": "1",
+					"Instance type": "db.t4g.micro",
+					"Utilization (On-Demand only)": "100 %Utilized/Month",
+					"Deployment selection": "Multi-AZ",
+					"Pricing strategy": "OnDemand",
+					"Total Size of Backup Processed for Export (GB)": "10 per month"
+				}
+			},
+			{
+				"Service Name": "Network Load Balancer",
+				"Region": "US East (Ohio)",
+				"Status": "",
+				"Service Cost": {
+					"monthly": "104.03",
+					"upfront": "0.00",
+					"12 months": "1248.36"
+				},
+				"Properties": {
+					"Number of Network Load Balancers": "1",
+					"Processed bytes per NLB for TCP": "10 GB per hour",
+					"Average number of new TCP connections": "100 per second",
+					"Average TCP connection duration": "90 seconds",
+					"Processed bytes per NLB for TLS": "10 GB per hour",
+					"Average number of new TLS connections": "100 per second",
+					"Average TLS connection duration": "90 seconds"
+				}
+			}
+		]
+	}
+}
