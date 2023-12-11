@@ -1,7 +1,7 @@
 import requests
 import time
 
-url = "http://alb-eks-1848199411.us-east-2.elb.amazonaws.com/tools.descartes.teastore.webui/login" # TODO ALWAYS ADJUST
+url = "http://alb-eks-1401051952.us-east-2.elb.amazonaws.com/tools.descartes.teastore.webui/login" # TODO ALWAYS ADJUST
 limit = 500  
 delay_seconds = 60 / limit  
 

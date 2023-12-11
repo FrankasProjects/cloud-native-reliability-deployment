@@ -22,7 +22,7 @@ Note: Sometimes there is an error in binding the correct association when runnin
 ## Test WAF - ALternative 2
 
 1. Download and install [Apache JMeter](https://jmeter.apache.org/download_jmeter.cgi)
-2. Adjust the URL within the test.jmx (similar to: alb-eks-1401051952.us-east-2.elb.amazonaws.com - without http://)
+2. Adjust the URL within the [test.jmx](https://github.com/frankakn/reliability-deployment/blob/main/Deployment/Reliability/GuardedIngress/JMeter/teastore_browse.jmx) (similar to: alb-eks-1401051952.us-east-2.elb.amazonaws.com - without http://)
 3. Execute the Rate Limiting Thread Group and watch the Results Tree 
 
 During testing we encountered a delay: Setting a limit to 100 and executing the test script, the 403 status code will be sent after around 200 requests. 
