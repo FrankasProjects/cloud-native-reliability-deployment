@@ -19,7 +19,25 @@ Install via Helm (adjusted from: https://www.haproxy.com/documentation/kubernete
 1. ``helm repo add haproxytech https://haproxytech.github.io/helm-charts``
 2. ``helm repo update``
 3. ``helm install haproxy-kubernetes-ingress haproxytech/kubernetes-ingress --create-namespace --namespace haproxy-controller --set controller.service.type=LoadBalancer --set controller.service.annotations."service\.beta\.kubernetes\.io/aws-load-balancer-type"="external" --set controller.service.annotations."service\.beta\.kubernetes\.io/aws-load-balancer-nlb-target-type"="ip" --set controller.service.annotations."service\.beta\.kubernetes\.io/aws-load-balancer-scheme"="internet-facing" ``
-4. Configure App Deployment: The HaProxy creates per default an NLB. The install statement from 3 ensures it is internet-facing, so that the created DNS can be used to access the TeaStore WebUI. Run:: `` kubectl get services --namespace haproxy-controller ``.
-5. Insert External IP (similar to kubectl get services --namespace haproxy-controller) into the TeaStore Deployment file as hostname.
-5. Deploy Teastore: ``kubectl apply -f (todo) mod.yaml`` 
+4. Configure App Deployment: The HaProxy creates per default an NLB. The install statement from 3 ensures it is internet-facing, so that the created DNS can be used to access the TeaStore WebUI. Run: `` kubectl get services --namespace haproxy-controller ``.
+5. Insert External IP (similar to kubectl get services --namespace haproxy-controller) into the [TeaStore Deployment file](https://github.com/frankakn/reliability-deployment/blob/main/Deployment/Reliability/GuardedIngress/IngressController/TeaStore/teastore-haproxy.yaml) as hostname.
+6. Navigate into this folder (IngressController)
+7. Deploy Teastore: ``kubectl create -f TeaStore\teastore-haproxy.yaml`` 
 
+
+## Access
+
+8. Acess the TeaStore WebUI via the external IP of the load balancer (`` kubectl get services --namespace haproxy-controller ``)
+
+**NOTE:** Even if the NLB in the console shows active, it may take up to 10 minutes for the load balancer being reachable.
+
+## Test
+
+To test the configured rate limits:
+- TODO
+
+## CleanUp
+
+In order to delete the application, as well as the terraform cluster conduct:
+1. `` kubectl delete -f  TeaStore\teastore-haproxy.yaml ``. This removes the TeaStore from the cluster. 
+2. ``Terraform destroy`` confirm with ``yes``. This may take up to 20 min. 

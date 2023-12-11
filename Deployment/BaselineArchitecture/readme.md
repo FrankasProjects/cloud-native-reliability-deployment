@@ -35,15 +35,15 @@ To connect to the cluster execute: ``aws eks --region us-east-2 update-kubeconfi
 
 ## Deploy the TeaStore
 
-To deploy the TeaStore using an NLB run: ``kubectl create -f kubectl create -f TeaStore\teastore-alb.yaml``.   
-To deploy the TeaStore using an ALB run: ``kubectl create -f kubectl create -f TeaStore\teastore-nlb.yaml``. 
+To deploy the TeaStore using an NLB run: ``kubectl create -f TeaStore\teastore-alb.yaml``.   
+To deploy the TeaStore using an ALB run: ``kubectl create -f TeaStore\teastore-nlb.yaml``. 
 
 ### Access
 
 1. via kubectl: get information about cluster and services via commands like: ``kubectl -n get services``, ``kubectl describe services``, ``kubectl get pods``, ... (add -n teastore-namespace for ALB Deployment)
 2. get endpoint via: ``kubectl get services``. External IP of teastore-webui is reachable via the internet (after provisioning the services the load balancer takes a couple of minutes to spin up and become active (up to 10 minutes)) (add -n teastore-namespace for ALB deployment).
 
-### Cleanup
+### CleanUp
 
 In order to delete the application, as well as the terraform cluster conduct:
 1. `` kubectl delete -f  TeaStore\teastore-alb.yaml `` or `` kubectl delete -f  TeaStore\teastore-nlb.yaml ``. This removes the TeaStore from the cluster. 

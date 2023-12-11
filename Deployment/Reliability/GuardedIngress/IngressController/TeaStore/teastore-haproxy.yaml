@@ -329,7 +329,7 @@ metadata:
 spec:
   ingressClassName: haproxy
   rules:
-  - host: "k8s-haproxyc-haproxyk-d745ed3bdd-b4477faf580727c8.elb.us-east-2.amazonaws.com" # insert HAProxy Load Balancer DNS
+  - host: "k8s-haproxyc-haproxyk-c11164d7d0-139417ba4ef966bb.elb.us-east-2.amazonaws.com" # insert HAProxy Load Balancer DNS
     http:
       paths:
       - path: /
