@@ -24,17 +24,11 @@ Install via Helm (adjusted from: https://www.haproxy.com/documentation/kubernete
 6. Navigate into this folder (IngressController)
 7. Deploy Teastore: ``kubectl create -f TeaStore\teastore-haproxy.yaml`` 
 
-
 ## Access
 
 8. Acess the TeaStore WebUI via the external IP of the load balancer (`` kubectl get services --namespace haproxy-controller ``)
 
 **NOTE:** Even if the NLB in the console shows active, it may take up to 10 minutes for the load balancer being reachable.
-
-## Test
-
-To test the configured rate limits:
-- TODO
 
 ## CleanUp
 

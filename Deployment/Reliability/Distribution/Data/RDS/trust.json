@@ -1,0 +1,17 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Federated": "arn:aws:iam::800985650215:oidc-provider/oidc.eks.us-east-2.amazonaws.com/id/56D3D780152BCE91D9C7C7FEED49ECB6"
+      },
+      "Action": "sts:AssumeRoleWithWebIdentity",
+      "Condition": {
+        "StringEquals": {
+          "oidc.eks.us-east-2.amazonaws.com/id/56D3D780152BCE91D9C7C7FEED49ECB6:sub": "system:serviceaccount:ack-system:ack-rds-controller"
+        }
+      }
+    }
+  ]
+}

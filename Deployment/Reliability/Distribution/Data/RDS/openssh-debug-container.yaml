@@ -1,0 +1,61 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: teastore-namespace
+  name: teastore-openssh
+  labels:
+    app: teastore-openssh
+    run: teastore-openssh
+spec:
+  selector:
+    matchLabels:
+      app: teastore-openssh
+      run: teastore-openssh
+  template:
+    metadata:
+      labels:
+        app: teastore-openssh
+        run: teastore-openssh
+    spec:
+      containers:
+        - name: teastore-openssh
+          image: lscr.io/linuxserver/openssh-server:latest
+          ports:
+            - containerPort: 2222
+          env:
+            - name: PUID
+              value: "1000"
+            - name: PGID
+              value: "1000"
+            - name: TZ
+              value: Etc/UTC
+            - name: SUDO_ACCESS
+              value: "true"
+            - name: PASSWORD_ACCESS
+              value: "true"
+            - name: USER_PASSWORD
+              value: "yoshi"
+            - name: USER_NAME
+              value: "yoshi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: teastore-namespace
+  name: teastore-openssh
+  labels:
+    app: teastore-openssh
+    run: teastore-openssh
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-type: external
+    service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip
+    service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
+spec:
+  type: LoadBalancer #changed NodePort Type to LoadBalancer and removed nodeport : 30080
+  ports:
+    - port: 2222
+      targetPort: 2222
+      protocol: TCP
+  selector:
+    run: teastore-openssh
