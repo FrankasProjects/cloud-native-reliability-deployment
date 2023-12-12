@@ -2,21 +2,20 @@
 This part of the repository replaces the MariaDB container of the TeaStore with an Amazon RDS Maria DB Instance in order to achieve physical data distribution. 
 For the creation of the database instance, AWS Controllers for Kubernetes (ACK) is used, which allows to create AWS resources within the Kubernetes environment. 
 
-**NOTE:** The repository also sets a username and password for the created database, since these specific values are later used by the teastore application to access the database and therefore can not be changed. (TODO testing purpose oder ganz rausnehmen?)
+**NOTE:** The repository also sets a username and password for the created database, since these specific values are later used by the teastore application to access the database and therefore can not be changed. 
 
 ## Prerequisites
 
-1. Provisioned EKS Cluster (link)
-2. Connection to the cluster (kubectl command)
-2. AWS CLI - A command line tool for interacting with AWS services.
-3. kubectl - A command line tool for working with Kubernetes clusters.
-4. eksctl - A command line tool for working with EKS clusters.
-5. Helm 3.7+ - A tool for installing and managing Kubernetes applications.
-
+1. Provisioned EKS Cluster: [Baseline Architecture](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/BaselineArchitecture)
+2. Connection to the cluster (via ``aws eks --region us-east-2 update-kubeconfig --name eks-cluster``)
+2. [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) - A command line tool for interacting with AWS services.
+3. [kubectl](https://kubernetes.io/de/docs/tasks/tools/install-kubectl/) - A command line tool for working with Kubernetes clusters.
+4. [eksctl](https://eksctl.io/) - A command line tool for working with EKS clusters.
+5. [Helm 3.7+](https://helm.sh/) - A tool for installing and managing Kubernetes applications.
 
 ## Setup 
 
-1. Install ACK controller: ``bash controler.sh``
+1. Install ACK controller: ``bash controller.sh``
 2. Create Service account for ACK controller: ``bash IAM.sh``
 3. Check if the RDS controller is up an running: ``kubectl get deployments -n ack-system``
 4. Create the database (including security groups, anmespace, secrets, and subnet groups) via ``bash db.sh``  
@@ -24,7 +23,7 @@ For the creation of the database instance, AWS Controllers for Kubernetes (ACK) 
 
 ### Physical Data Distribution
 
-The database is created as a Multi-AZ database. For MariaDB instnaces this means, that an additional DB instance is provided in another vailability zone (selected fromt he created subnet group) that serves only as a fallback (linktowebsite).   
+The database is created as a Multi-AZ database. For MariaDB instances this means, that an additional DB instance is provided in another availability zone (selected from the created subnet group) that serves only as a fallback.  
 In order to achieve further distribution, that also serves requets readreplicas can be created with the following commands:
 
 ```
@@ -57,13 +56,13 @@ Following this approach, cascading read replicas are created. AWS RDS allows up 
 
 ### Deploy TeaStore
 
-Execute `` kubectl create -f C:\Users\frank\Dokumente\Master\Thesis\mastersthesis\Code\teastore\teastore-rds.yaml `` (TODO adjust link)
+Execute `` kubectl create -f TeaStore\teastore-rds.yaml `` (TODO adjust link)
 
 
 ## Clean Up
 
 The repository created:
-1. Shutdown Teastore: ``kubectl delete -f C:\Users\frank\Dokumente\Master\Thesis\mastersthesis\Code\teastore\teastore-rds.yaml``
+1. Shutdown Teastore: ``kubectl delete -f TeaStore\teastore-rds.yaml``
 2. RDS Controller within the cluster: Deletes with the cluster
 3. Namespace within the cluster: Deletes with the cluster
 4. Database Instance: ``kubectl delete -f rds-mariadb.yaml``
