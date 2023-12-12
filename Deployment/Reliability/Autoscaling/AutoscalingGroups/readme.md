@@ -30,7 +30,7 @@ The [EKS cluster creation](https://github.com/frankakn/reliability-deployment/tr
 
 ## Testing
 
-The teastore application already provides load testing scripts for Apache Apache JMeter. To test the scaling functionality:
+The TeaStore application already provides load testing scripts for Apache Apache JMeter. To test the scaling functionality:
 1. Install JMeter (link)
 2. Open the GUI (bin/apacheJmeter.jar)
 3. Open [JMeter file](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/Reliability/GuardedIngress/JMeter)

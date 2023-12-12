@@ -21,7 +21,7 @@ The Cluster Autoscaler will be deployed as a Kubernetes Deployment within the ac
 
 ## Testing
 
-To easily test the Cluster Autoscaler, we easily increase the replicas of some services of the application by executing:
+To easily test the Cluster Autoscaler, we increase the replicas of some services of the application by executing:
 
 1. ``kubectl -n teastore-namespace --replicas=2 deployment/teastore-webui``. Increase replicas depending on the free cluster capacity.
 2. ``kubectl -n teastore-namespace --replicas=2 deployment/teastore-recommender``
