@@ -1,1 +1,27 @@
-TODO
+# Deploying Cloud-native Applications
+
+This repository complements the masters thesis: *Evaluating Cost Implications of Cloud-Native Application Characteristics with a Focus on Reliability Aspects.*
+
+The repository includes the review protocol of the conducted systematic literature review, as well as the implementation of the microserivce application with a focus on the reliability aspects for cloud-native applications defined by Lichtenthäler and Wirtz ([Paper,](https://link.springer.com/chapter/10.1007/978-3-031-04718-3_7) [Model](https://r0light.github.io/cna-quality-model/)). 
+
+## Systematic Literature Review
+The literature review was conducted to identify common research approaches to analyze and work with cloud costs and cloud pricing strategies. The literature serves as a basis for categorizing cloud costs and identifying how these are linked to software quality aspects.   
+
+The [review protocol](https://github.com/frankakn/reliability-deployment/blob/main/SystematicLiteratureReview/readme.md) contains all steps of the literature rreiview, as well as the individual search strings, selection criteria, and the resultset.
+
+## Cloud-native Deployment
+
+Aside from the literature review, the product factors of the quality aspect *Reliability* from the cloud-native quality model by Lichtenthäler and Wirtz were implemented using the microservice reference application [Teastore](https://github.com/DescartesResearch/TeaStore).  
+The [baseline architecture](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/BaselineArchitecture) of the cloud-native application deployment was implemented using the AWS EKS.  
+In addition, the implementation options for each product factor were added in a modular manner to complement the baseline architecture.  
+The repository is structured as follows: Each directory of a product factor contains the various options and solutions that contribute to the implementation of the reliability aspect. Corresponding implementation instructions are provided, as well as corresponding changes to the workload definition of the TeaStore.  
+ 
+The following table shows a summary of implemented concepts. 
+
+| Product Factor                       | Implementation Options              |                                 |                                   |                                 |                         |
+|--------------------------------------|-------------------------------------|---------------------------------|-----------------------------------|---------------------------------|-------------------------|
+| Built-In Autoscaling                 | [AWS Auto Scaling Groups & Policies](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/Reliability/Autoscaling/AutoscalingGroups) | [Cluster Autoscaler](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/Reliability/Autoscaling/ClusterAutoscaler)              | [Karpenter](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/Reliability/Autoscaling/Karpenter)                         | [Horizontal Pod Autoscaler](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/Reliability/Autoscaling/HPA)       | [Vertical Pod Autoscaler](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/Reliability/Autoscaling/VPA) |
+| Physical Data / Service Distribution | [StatefulSets and Persistent Volumes](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/Reliability/Distribution/Data/StatefulSets) | [AWS Relational Database Service](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/Reliability/Distribution/Data/RDS) | [Node / Pod (Anti-) Affinity Rules](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/Reliability/Distribution/Service) | [Pod Topology Spread Constraints](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/Reliability/Distribution/Service) |                         |
+| Guarded Ingress                      | [AWS Web Application Firewall](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/Reliability/GuardedIngress/AWSWAF)        | [Ingress Controller](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/Reliability/GuardedIngress/IngressController)              | [(ModSecurity)](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/Reliability/GuardedIngress/ModSecurity)                     |                                 |                         |
+| Health and Readiness Checks          | [Liveness and Readiness Probes](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/Reliability/HealthChecks)       | [AWS Load Balancer Health Checks](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/Reliability/HealthChecks) |                                   |                                 |                         |
+| Seamless Upgrades                    | [K8s Rolling Update Strategy](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/Reliability/SeamlessUpgrade)         | [Blue-Green Update Strategy](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/Reliability/SeamlessUpgrade)           |                                   |                                 |                         |
