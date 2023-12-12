@@ -1,6 +1,6 @@
 ﻿Author,Year,Title
 Arshad et al.,2015,A survey of cloud computing variable pricing models
-"Li et al. ",2014,Price competition in a duopoly iaas cloud market
+Li et al. ,2014,Price competition in a duopoly iaas cloud market
 Cong et al.,2020,Personality-guided cloud pricing via reinforcement learning
 Teramoto and Huang,2012,Pay as You go in the Cloud: One Watt at a Time
 Gohad et al.,2013,Cloud pricing models: A survey and position paper
@@ -10,17 +10,17 @@ Markus and Kertesz,2017,Simulating IoT Cloud systems: A meteorological case stud
 Cong et al.,2018,Developing user perceived value based pricing models for cloud markets
 Kandpal et al.,2017,Role of predictive modeling in cloud services pricing: a survey
 Mahajan et al.,2019,Optimal pricing for serverless computing
-"Belli et al. ",2016,Towards a Cost-Optimized Cloud Application Placement Tool
-Boza et al.,2017,"Reserved, on demand or serverless: Model-based simulations for cloud budget planning"
+Belli et al. ,2016,Towards a Cost-Optimized Cloud Application Placement Tool
+"Boza et al.,2017,""Reserved, on demand or serverless: Model-based simulations for cloud budget planning"""
 Adebayo et al.,2020,Cost-Benefit Analysis of Pricing Models in Cloudlets
-"Kandpal et al. ",2019,Pricing model for revenue generation using Recurrent Neural Network for Cloud service provider
+Kandpal et al. ,2019,Pricing model for revenue generation using Recurrent Neural Network for Cloud service provider
 Li et al.,2013,Research on pricing model of cloud storage
-"Zhang et al. ",2020,A Dynamic Pricing Model for Virtual Machines in Cloud Environments
+Zhang et al. ,2020,A Dynamic Pricing Model for Virtual Machines in Cloud Environments
 Kozhipurath,2012,Cloud service costing challenges
 He et al.,2013,On the Cost–QoE tradeoff for cloud-based video streaming under Amazon EC2's pricing models
 Wang et al.,2013,Revenue maximization with dynamic auctions in IaaS cloud markets
 Martens et al.,2012,Costing of cloud computing services: A total cost of ownership approach
-"Wang et al. ",2012,When cloud meets ebay: Towards effective pricing for cloud computing
+Nguyen et al. ,2012,Cost Models for View Materialization in the Cloud
 Zhang et al.,2014,Dynamic optimal resource provisioning for VoD services under Amazon EC2's pricing models
 Karthikeyan and Nandhini,2016,Dependent component cost model of legacy application for hybrid cloud
 Motta et al.,2012,Cloud computing: a business and economical perspective
@@ -35,11 +35,11 @@ Kansal et al.,2014,Pricing models in cloud computing
 Dreher et al.,2017,Cost analysis comparing HPC public versus private cloud computing
 Mishra et al.,2018,A survey on optimal utilization of preemptible VM instances in cloud computing
 Kumar et al.,2018,A survey on spot pricing in cloud computing
-"Umer et al. ",2022,A survey on spot pricing in cloud computing
+Umer et al. ,2022,A survey on spot pricing in cloud computing
 Hans et al.,2013,Enabling Virtual Manufacturing Enterprises with Cloud Computing: An Analysis of Criteria for the Selection of Database as a Service Offers
 Lecznar and Patig,2011,Cloud computing providers: Characteristics and recommendations
 Sehgal et al.,2020,Cost and billing practices in cloud
 Weinhardt et al.,2009,Cost and billing practices in cloud
 Lowe and Galhotra,2018,An Overview of Pricing Models for Using Cloud Services with analysis on Pay-Per-Use Model
 Kar and Rakshit,2015,Flexible Pricing Models for Cloud Computing Based on Group Decision Making Under Consensus
-Rimal and Choi,2012,"A service-oriented taxonomical spectrum, cloudy challenges and opportunities of cloud computing"
+"Rimal and Choi,2012,""A service-oriented taxonomical spectrum, cloudy challenges and opportunities of cloud computing"""
