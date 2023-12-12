@@ -66,20 +66,6 @@ spec:
       containers:
         - name: teastore-registry
           image: descartesresearch/teastore-registry
-          livenessProbe:
-            httpGet:
-              path: /tools.descartes.teastore.registry/index
-              port: 8080
-            initialDelaySeconds: 60
-            failureThreshold: 3
-            periodSeconds: 5
-          readinessProbe:
-            httpGet:
-              path: /tools.descartes.teastore.registry/index
-              port: 8080
-            initialDelaySeconds: 60
-            failureThreshold: 1
-            periodSeconds: 3
           ports:
             - containerPort: 8080
 ---
@@ -259,20 +245,6 @@ spec:
       containers:
         - name: teastore-recommender
           image: descartesresearch/teastore-recommender
-          livenessProbe:
-            httpGet:
-              path: /tools.descartes.teastore.recommender/index
-              port: 8080
-            initialDelaySeconds: 60
-            failureThreshold: 3
-            periodSeconds: 5
-          readinessProbe:
-            httpGet:
-              path: /tools.descartes.teastore.recommender/index
-              port: 8080
-            initialDelaySeconds: 60
-            failureThreshold: 1
-            periodSeconds: 3
           ports:
             - containerPort: 8080
           env:
@@ -300,48 +272,25 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: teastore-namespace
-  name: teastore-webui-blue # adjust (1) to green
+  name: teastore-webui
   labels:
     app: teastore
     run: teastore-webui
-    color: blue # adjust (1) to green
 spec:
-  replicas: 3 
-  strategy:
-   type: RollingUpdate
-   rollingUpdate:
-     maxSurge: 1
-     maxUnavailable: 0
+  replicas: 7
   selector:
     matchLabels:
       app: teastore
       run: teastore-webui
-      color: blue # adjust (1) to green
   template:
     metadata:
       labels:
         app: teastore
         run: teastore-webui
-        color: blue # adjust (1) to green
     spec:
       containers:
         - name: teastore-webui
-          image: descartesresearch/teastore-webui:1.4.2
-          # descartesresearch/teastore-webui:latest (green)
-          livenessProbe:
-            httpGet:
-              path: /tools.descartes.teastore.webui/status
-              port: 8080
-            initialDelaySeconds: 60
-            failureThreshold: 3
-            periodSeconds: 5
-          readinessProbe:
-            httpGet:
-              path: /tools.descartes.teastore.webui/status
-              port: 8080
-            initialDelaySeconds: 60
-            failureThreshold: 1
-            periodSeconds: 3
+          image: descartesresearch/teastore-webui
           ports:
             - containerPort: 8080
           env:
@@ -366,7 +315,6 @@ spec:
       protocol: TCP
   selector:
     run: teastore-webui
-    color: blue # adjust (2) to green
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress

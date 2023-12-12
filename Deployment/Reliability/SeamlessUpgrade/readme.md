@@ -1,7 +1,10 @@
 # Seamless Updates
 
+This part of the repository implements two strategies for updating the TeaStore application. Next to the rolling upgrade strategy,w hich is managed by K8s, a self-managed blue-green strategy is proposed. 
 
 ## Rolling Upgrade of WebUI
+
+The rolling upgrade strategy managed by K8s iteratively updates the application. Via the parameters maxSurge and maxUnavailable the amount of additional and non-available pods at any time can be specified. In this example, only the TeaStore WebUI is updated to its latest image. Per default 3 replicas are created to visualize the update process. 
 
 ### Prerequisites
 
@@ -20,7 +23,6 @@
 Alternatively, explicitly update specific image via:
 
 ``kubectl set image -n teastore-namespace deployments/teastore-webui teastore-webui=descartesresearch/teastore-webui:latest``
-
 
 ### CleanUp
 
