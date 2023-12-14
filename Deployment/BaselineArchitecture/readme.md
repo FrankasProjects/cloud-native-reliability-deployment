@@ -11,11 +11,13 @@ The general cluster architecture consists of a VPC with six subnets (three priva
 
 ## Requirements
 
-1. Terraform installed (v1.3+) locally (https://developer.hashicorp.com/terraform/downloads?product_intent=terraform)
-2. AWS account
-3. AWS CLI v2.7.0/v1.24.0 or newer (authenticate via aws configure: access key id & secret access key required)
-5. kubectl v1.24.0 or newer (https://kubernetes.io/de/docs/tasks/tools/install-kubectl/)
-6. Install helm and set as sysenv variable (https://phoenixnap.com/kb/install-helm)
+1. Terraform installed (v1.3+) [locally](https://developer.hashicorp.com/terraform/downloads?product_intent=terraform)
+2. AWS Account
+3. [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) - A command line tool for interacting with AWS services. V2.7.0/v1.24.0 or newer (authenticate via aws configure: access key id & secret access key required).
+4. [kubectl](https://kubernetes.io/de/docs/tasks/tools/install-kubectl/) - A command line tool for working with Kubernetes clusters.V1.24.0 or newer.
+5. [Helm 3.7+](https://helm.sh/) - A tool for installing and managing Kubernetes applications. Set as sysenv [variable](https://phoenixnap.com/kb/install-helm).
+6. [eksctl](https://eksctl.io/) - A command line tool for working with EKS clusters.
+
 
 
 ## Cluster Creation
@@ -54,15 +56,4 @@ In order to delete the application, as well as the terraform cluster conduct:
 If the application is not removed via ``kubectl delete`` before ``terraform destroy`` is called, Terraform is not able to delete all resources. The teastore.yaml triggers the creation of a resource of type load balancer which is connected to subnets within the VPC but not managed by terraform. Terraform will be unable to remove the subnets and the load balancer has to be removed via the console.
 
 [1] https://github.com/DescartesResearch/TeaStore
-
-<!-- setx KUBECONFIG " C:\Users\frank\.kube\config" REQUIRED? -->
-
-<!--  kubectl create -f C:\Users\frank\Dokumente\Master\Thesis\mastersthesis\Code\teastore\teastore-nlb.yaml -->
-<!--  kubectl create -f C:\Users\frank\Dokumente\Master\Thesis\mastersthesis\Code\teastore\teastore-mod.yaml -->
-<!--  kubectl create -f C:\Users\frank\Dokumente\Master\Thesis\mastersthesis\Code\teastore\teastore-rds.yaml -->
-<!--  kubectl create -f C:\Users\frank\Dokumente\Master\Thesis\mastersthesis\Code\teastore\teastore-alb.yaml -->
-<!--  kubectl create -f C:\Users\frank\Dokumente\Master\Thesis\mastersthesis\Code\teastore\teastore-replicas.yaml -->
-<!--  kubectl create -f C:\Users\frank\Dokumente\Master\Thesis\mastersthesis\Code\teastore\teastore-hpa.yaml -->
-<!-- kubectl create -f C:\Users\frank\Dokumente\Master\Thesis\mastersthesis\Code\teastore\teastore-health.yaml -->
-<!-- kubectl create -f C:\Users\frank\Dokumente\Master\Thesis\mastersthesis\Code\teastore\teastore-health.yaml -->
 
