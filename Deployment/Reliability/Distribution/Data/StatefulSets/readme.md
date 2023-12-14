@@ -18,25 +18,24 @@ The physical distribution across availability zones requires the usage and creat
 ## Setup
 
 1. Create namespace ``kubectl create namespace teastore-namespace``.
-2. Create database access secret within the namespace: ``kubectl -n teastore-namespace create secret generic "mariadb-secret" --from-literal=mariadb-root-password="teapassword"``
-3. Deploy EFS by navigating into this folder, running `` Terraform init `` and ``Terraform apply`` and finally confirm with ``yes``
-. 
+2. Create database access secret within the namespace: ``kubectl -n teastore-namespace create secret generic "mariadb-secret" --from-literal=mariadb-root-password="teapassword"``.
+3. Deploy EFS by navigating into this folder, running `` Terraform init `` and ``Terraform apply`` and finally confirm with ``yes``.
 4. The terraform module currently does not handle the driver creation, current Terraaform modules where only provided by third parties and were not comptabile. Therefore, first create a IAM Service account and then install the driver via:
-- Create Policy: ``aws iam create-policy --policy-name EKS_EFS_CSI_Driver_Policy --policy-document file://iam-policy.json`` 
+- Create Policy: ``aws iam create-policy --policy-name EKS_EFS_CSI_Driver_Policy --policy-document file://iam-policy.json`` .
 - Create Service Account: ``eksctl create iamserviceaccount --cluster eks-cluster --namespace kube-system --name efs-csi-controller-sa --attach-policy-arn arn:aws:iam::ACCID:policy/EKS_EFS_CSI_Driver_Policy --approve --region us-east-2 ``. Adjust the ARN with the policy arn output from the step before.
-- ``helm repo add aws-efs-csi-driver https://kubernetes-sigs.github.io/aws-efs-csi-driver/``
-- ``helm repo update aws-efs-csi-driver``
-- ``helm upgrade --install aws-efs-csi-driver --namespace kube-system aws-efs-csi-driver/aws-efs-csi-driver --set controller.serviceAccount.create=false --set controller.serviceAccount.name=efs-csi-controller-sa``
+- ``helm repo add aws-efs-csi-driver https://kubernetes-sigs.github.io/aws-efs-csi-driver/``.
+- ``helm repo update aws-efs-csi-driver``.
+- ``helm upgrade --install aws-efs-csi-driver --namespace kube-system aws-efs-csi-driver/aws-efs-csi-driver --set controller.serviceAccount.create=false --set controller.serviceAccount.name=efs-csi-controller-sa``.
 - Check if 2 controller pods and 3 csi-node pods are running via `` kubectl get pod -n kube-system -l "app.kubernetes.io/name=aws-efs-csi-driver,app.kubernetes.io/instance=aws-efs-csi-driver" ``. 
 5. Create storage class and connect to the AWS EFS:
-- GET AWS EFS ID: `` aws efs describe-file-systems --query "FileSystems[*].FileSystemId" --output text`` and **INSERT** it into the storageclass.yaml
-- Create storageclass: `` kubectl apply -f storageclass.yaml``
-6. Deploy the TeaStore via: `` kubectl create -f TeaStore\teastore-pvc.yaml``
+- GET AWS EFS ID: `` aws efs describe-file-systems --query "FileSystems[*].FileSystemId" --output text`` and **INSERT** it into the storageclass.yaml.
+- Create storageclass: `` kubectl apply -f storageclass.yaml``.
+6. Deploy the TeaStore via: `` kubectl create -f TeaStore\teastore-pvc.yaml``.
 7. Check if MariaDB is replicated via: `` kubectl -n teastore-namespace get pods``. mariadb-sts-0, mariadb-sts-1, and mariadb-sts-2 should be up and running. 
 
 
-## CleanUP
+## CleanUp
 
-1. Delete Application ``kubectl delete -f TeaStore\teastore-pvc.yaml``
+1. Delete Application ``kubectl delete -f TeaStore\teastore-pvc.yaml``.
 2. delete file storage: `` Terraform destroy`` confirm with ``yes``. Ensure to execute within this directory.
 3. delete cluster: ``Terraform destroy`` confirm with ``yes``. Ensure to conduct within the baseline architecture directly. 
