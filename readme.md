@@ -7,7 +7,7 @@ The repository includes the review protocol of the conducted systematic literatu
 ## Systematic Literature Review
 The literature review was conducted to identify common research approaches to analyze and work with cloud costs and cloud pricing strategies. The literature serves as a basis for categorizing cloud costs and identifying how these are linked to software quality aspects.   
 
-The [review protocol](https://github.com/frankakn/reliability-deployment/blob/main/SystematicLiteratureReview/readme.md) contains all steps of the literature rreiview, as well as the individual search strings, selection criteria, and the resultset.
+The [review protocol](https://github.com/frankakn/reliability-deployment/blob/main/SystematicLiteratureReview/readme.md) contains all steps of the literature review, as well as the individual search strings, selection criteria, and the resultset.
 
 ## Cloud-native Deployment
 

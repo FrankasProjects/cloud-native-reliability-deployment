@@ -32,9 +32,6 @@ After some minutes new nodes should be in state ready and all pods are running.
 
 ## Cleanup
 
-1. Delete application 
-2. Run ``bash shutdown-autoscaler.sh`` and enter the name of the cluster (eks-cluster)
+1. Delete application via ``kubectl delete -f TeaStore\teastore-alb.yaml`` from within the baseline architecture directoy. 
+2. Run ``bash shutdown-autoscaler.sh`` and enter the name of the cluster (eks-cluster). 
 3. Delete Cluster: ``Terraform destroy`` confirm with ``yes``. This may take up to 20 min. 
-
-
-https://aws.plainenglish.io/cluster-autoscaler-amazon-eks-7ffaa24e5938 - part mit dne permissions in die arbeit

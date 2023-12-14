@@ -19,16 +19,16 @@ This part of the repository adds the Horizontal Pod Autoscaler for the AWS EKS c
 ## Test the HPA
 
 The TeaStore application already provides load testing scripts for Apache Apache JMeter. To test the scaling functionality:
-1. Install JMeter (link)
-2. Open the GUI (bin/apacheJmeter.jar)
-3. Open [JMeter file](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/Reliability/GuardedIngress/JMeter)
-4. Adjust the webpage endpoint (DNS of Load Balancer) (Call ``kubectl get services`` -> External IP of teastore-webui )
-5. Start Thread group 3 (including several http requests)
-6. Monitor via kubectl (-n teastore-namespace) get pods
-7. Stop the load testing 
+1. Install JMeter ([Installation](https://www.simplilearn.com/tutorials/jmeter-tutorial/jmeter-installation)).
+2. Open the GUI (bin/apacheJmeter.jar).
+3. Open [JMeter file](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/Reliability/GuardedIngress/JMeter).
+4. Adjust the webpage endpoint (DNS of Load Balancer) (Call ``kubectl get services`` -> External IP of teastore-webui ).
+5. Start Thread group 3 (including several http requests).
+6. Monitor via kubectl (-n teastore-namespace) get pods.
+7. Stop the load testing.
 
 ## Clean-Up
 
-1. Delete application 
+1. Delete application ``kubectl delete -f Teastore\teastore-hpa.yaml``. 
 2. Delete Policies: ``Terraform destroy`` confirm with ``yes``. (Within this folder)
 3. Delete Cluster: ``Terraform destroy`` confirm with ``yes``. (Within the Baseline Arhcitecture Folder)

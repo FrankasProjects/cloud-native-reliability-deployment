@@ -1,12 +1,11 @@
-
 # Elastic Kubernetes Service (EKS) with Managed Node Groups
 
-This section introduces the deployment steps required to deploy the TeaStore [1] on an AWS EKS cluster. The following steps create the baseline architecture, i.e. the required VPC, subnets, and the EKS cluster to deploy the TeaStore application and to add the individual reliability modules (LINK).
+This section introduces the deployment steps required to deploy the TeaStore [1] on an AWS EKS cluster. The following steps create the baseline architecture, i.e. the required VPC, subnets, and the EKS cluster to deploy the TeaStore application and to add the individual reliability modules.
 
 
 ## Architecture
 
-The general cluster architecture consists of a VPC with six subnets (three private and three public), each in a different availability zone. Here, the US-EAST region is used. The cluster itself consists of two managed node groups, one containing one node and the other containing two nodes. This repo applies the module structure enabled by Terraform by splitting the cluster creation into two modules. The first module (eks-clsuter-creation) creates the requried VPC, subnets, policies, and the EKS clsuter itself with the two node groups. Afterwards, the second module isntalls the requried add-ons in the cluster, here the aws-load-balancer controller that is required to dpeloy the application later. 
+The general cluster architecture consists of a VPC with six subnets (three private and three public), each in a different availability zone. Here, the *us-east-2* region is used. The cluster itself consists of two managed node groups, one containing one node and the other containing two nodes. This repo applies the module structure enabled by Terraform by splitting the cluster creation into two modules. The first module (eks-cluster-creation) creates the requried VPC, subnets, policies, and the EKS cluster itself with the two node groups. Afterwards, the second module isntalls the requried add-ons in the cluster, here the aws-load-balancer controller that is required to installs the application later. 
 
 
 ## Requirements
@@ -22,7 +21,7 @@ The general cluster architecture consists of a VPC with six subnets (three priva
 
 ## Cluster Creation
 
-1. Initialize the repo: ``Terraform init``. This initializes the working directory by installing plugins and the modules created in the project structure. **NOTE:** Initializing the repo may result in an error, due to *filename too long*; can be avoided by cloning the repository into a higher level file.
+1. Initialize the repo: ``Terraform init``. This initializes the working directory by installing plugins and the modules created in the project structure. **NOTE:** Initializing the repo may result in an error, due to *filename too long*; can be avoided by cloning the repository into a higher level directory.
 2. [Optional] Plan the deployment: ``Terraform plan``. This indicates how many resources are to be created and if any errors are present.
 3. Deploy the cluster: ``Terraform apply`` confirm with ``yes``. Starts the deployment of the cluster resources. May take up to 30 minutes. Sometimes timeout/errors occur, simply redo the apply step or destroy cluster and reapply.   
 

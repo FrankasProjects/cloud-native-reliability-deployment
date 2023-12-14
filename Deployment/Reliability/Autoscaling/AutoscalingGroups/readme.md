@@ -1,6 +1,6 @@
 # Implementation of EC2 Autoscaling Group Policies
 
-This part of the repository complements the AWS EKS Cluster creation by adding policies to specifiy the scaling behavior of the EC2 Cluster Autoscaling groups. Per default (using the EKS creation module - link) node groups are created as EC2 Autoscaling Groups. Thereby, already a minimum, mamximum and desired amount of nodes are specified per node group. In order to enable the automatic scaling, policies that define CPU and memory utilization thresholds are defined. 
+This part of the repository complements the AWS EKS Cluster creation by adding policies to specifiy the scaling behavior of the EC2 Cluster Autoscaling groups. Per default (using the EKS creation module) node groups are created as EC2 Autoscaling Groups. Thereby, already a minimum, mamximum and desired amount of nodes are specified per node group. In order to enable the automatic scaling, policies that define CPU and memory utilization thresholds are defined. 
 
 **NOTE 1**  
 This part of the project only covers utilization thesholds. Scaling up the cluster when nodes run out of capacity to schedule new nodes is implemented via a [Cluster Autoscaler](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/Reliability/Autoscaling/ClusterAutoscaler)
@@ -31,7 +31,7 @@ The [EKS cluster creation](https://github.com/frankakn/reliability-deployment/tr
 ## Testing
 
 The TeaStore application already provides load testing scripts for Apache Apache JMeter. To test the scaling functionality:
-1. Install JMeter (link)
+1. Install JMeter ([Installtion](https://www.simplilearn.com/tutorials/jmeter-tutorial/jmeter-installation))
 2. Open the GUI (bin/apacheJmeter.jar)
 3. Open [JMeter file](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/Reliability/GuardedIngress/JMeter)
 4. Adjust the webpage endpoint (DNS of Load Balancer) (Call ``kubectl get services`` -> External IP of teastore-webui )
@@ -41,6 +41,6 @@ The TeaStore application already provides load testing scripts for Apache Apache
 
 ## Cleanup
 
-1. Remove the application via 
-2. Run ``Terraform destroy`` confirm with ``yes`` (In the current directory, to only destroy the policy resource)
-3. Destroy EKS cluster (link)
+1. Remove the application via ``kubectl delete -f TeaStore\teastore-alb.yaml``. From within the baseline-architecture directory.
+2. Run ``Terraform destroy`` confirm with ``yes`` (In the current directory, to only destroy the policy resource). 
+3. Destroy EKS cluster from within the baseline architecture directory, via ``Terraform destroy`` and confirm with ``yes``.

@@ -68,7 +68,7 @@ Based on a first unstructured literature search and research articles in the clo
 > 1. with the exact phrase: cost analysis, where the title contains: cloud computing
 
 - Results: 65
-- Eingrenzung nach Jahr: 2006-2023: 65
+- Limit by Year: 2006-2023: 65
 - Articles: 29
 - Conference Paper: 21
 - Conference Proceedings: 2
@@ -78,7 +78,7 @@ Based on a first unstructured literature search and research articles in the clo
 > 2. with the exact phrase: cost analysis, where the title contains: cloud-native
 
 - Results: 3 
-- Eingrenzung nach Jahr: 2006-2023: 3
+- Limit by Year: 2006-2023: 3
 - Article: 1
 - Conference Paper: 1
 - Result: 2
@@ -87,7 +87,7 @@ Based on a first unstructured literature search and research articles in the clo
 > 3. with the exact phrase: pricing model, where the title contains: cloud computing
 
 - Results: 244
-- Eingrenzung nach Jahr: 2006-2023: 244
+- Limit by Year: 2006-2023: 244
 - Article: 95
 - Conference Paper: 87
 - Conference Proceeding: 2
@@ -97,7 +97,7 @@ Based on a first unstructured literature search and research articles in the clo
 > 4. with the exact phrase: pricing scheme, where the title contains: cloud computing
 
 - Results: 71
-- Eingrenzung nach Jahr: 2006-2023: 71
+- Limit by Year: 2006-2023: 71
 - Conference Paper: 19
 - Conference Proceeding: 1
 
@@ -111,15 +111,15 @@ Based on a first unstructured literature search and research articles in the clo
 According to Kitchenham et al. initial, more liberally study selection criteria are developed with the focus of removing articles that do not adhere to the scientific standard, are duplicates, or not within the investigated timeframe. Content criteria cover the target literature, but are further refined through the inclusion and exclusion criteria developed iteratively in the next section. 
 
 The study selection criteria include the following articles: 
-- Studies between 2006 and 2023 (The beginning of cloud computing to date)
-- Journal arcticles and conference paper (ensure peer-review process)
-- Systematic literature reviews
-- Studies with a different focus but at least one section on cloud costs
-- Studies that do not cover all existing cloud pricing model / cost types but address specific providers, products or cloud service models and their costs  
+- Studies between 2006 and 2023 (The beginning of cloud computing to date).
+- Journal arcticles and conference paper (ensure peer-review process).
+- Systematic literature reviews.
+- Studies with a different focus but at least one section on cloud costs.
+- Studies that do not cover all existing cloud pricing model / cost types but address specific providers, products or cloud service models and their costs.
 
 The study selection criteria exclude the following articles:  
-- Thematic duplicates (paper and journal extensions)
-- Informal articles such as keynotes, posters, workshops  
+- Thematic duplicates (paper and journal extensions).
+- Informal articles such as keynotes, posters, workshops.  
 
 Total of 697 Articles (applied criteria directly at search: year, peer-reviewed)  
 Result: After removing 58 duplicates: 697-58 = 639 articles  
@@ -136,9 +136,9 @@ Inclusion and exclusion criteria are iteratively developed by first conducting a
 ### 3.1 Title-based filtering
 During this step part of the study selection criteria were applied in addition to a first topic-related based filtering.  
 The articles matching the following criteria were removed from the resultset:
-- Posters, keynotes, workshops and informal articles
-- Articles, where the title indicates that the focus is on cloud offerings apart from the public cloud, e.g., hybrid or private cloud
-- Conference to journal extensions (keeping one version)
+- Posters, keynotes, workshops, and informal articles.
+- Articles, where the title indicates that the focus is on cloud offerings apart from the public cloud, e.g., hybrid or private cloud.
+- Conference to journal extensions (keeping one version).
 
 This step removed 130 articles, which results in 509 remaining articles.   
 ResultSet: [4_title_based_filtering](https://github.com/FrankasProjects/cloud-native-reliability-deployment/blob/main/Systematic%20Literature%20Review/ResultSets/4_title_based_filtering.csv)
@@ -147,10 +147,10 @@ ResultSet: [4_title_based_filtering](https://github.com/FrankasProjects/cloud-na
 
 ### 3.2 Abstract-based filtering
 During this step a more content-related selection was conducted that excluded the following types of articles:
-- Articles which propose new pricing mechanisms, such as dynamic and auction-based mechanisms, or propose approaches to maximize profit on CSP or customer side through **adaptions** of pricing mechanisms (not related to existing mechanisms)
-- Articles that focus on routing, networking, and more hardware-related topics and that include cost factors besides the cloud pricing mechanisms
+- Articles which propose new pricing mechanisms, such as dynamic and auction-based mechanisms, or propose approaches to maximize profit on CSP or customer side through **adaptions** of pricing mechanisms (not related to existing mechanisms).
+- Articles that focus on routing, networking, and more hardware-related topics and that include cost factors besides the cloud pricing mechanisms.
 - Articles that were analysing the TCO from the CSPs point of view, and therefore provide insights on the occuring costs of the CSP, suche as hardware, electricity, cooling, etc.
-- Articles that investigate the cloud provider market from an economical perspective and thus focus on economic phenomena and not on cloud pricing strategies
+- Articles that investigate the cloud provider market from an economical perspective and thus focus on economic phenomena and not on cloud pricing strategies.
 
 This step removed 419 articles, which results in 90 remaining articles.   
 ResultSet: [5_abstract_based_filtering](https://github.com/FrankasProjects/cloud-native-reliability-deployment/blob/main/Systematic%20Literature%20Review/ResultSets/5_abstract_based_filtering.csv)
@@ -159,8 +159,8 @@ ResultSet: [5_abstract_based_filtering](https://github.com/FrankasProjects/cloud
 
 ### 3.3 Full-text filtering
 During this step, articles were removed based on their full-text. The most common criteria for articles to be removed from the resultset were the follwoing:
-- Articles that were developing their own approach on optimizing cloud costs for either the provider or consumer side 
-- Articles that were listing specific cloud costs, for example for EC2 instances, but do not provide information about the price composition, and are therefore outdated
+- Articles that were developing their own approach on optimizing cloud costs for either the provider or consumer side.
+- Articles that were listing specific cloud costs, for example for EC2 instances, but do not provide information about the price composition, and are therefore outdated.
 
 Additioally, the table below displays all articles scanned in this step and provides a short explanation on their inclusion / removal. 
 

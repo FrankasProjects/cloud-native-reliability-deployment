@@ -1,6 +1,6 @@
 # Karpenter Module for Amazon EKS
 This part of the repository contains the implementation of the Kubernetes Node Autoscaler Karpenter.  
-Karpenter serves as an alternative to the Cluster Autoscaler (link) and scales up nodes according demands. In contrast to the Cluster Autoscaler, new nodes are provisioned independently of the existing node groups and can vary in size based on the requirements of the workload. 
+Karpenter serves as an alternative to the [Cluster Autoscaler](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/Reliability/Autoscaling/ClusterAutoscaler) and scales up nodes according demands. In contrast to the Cluster Autoscaler, new nodes are provisioned independently of the existing node groups and can vary in size based on the requirements of the workload. 
 
 ## Prerequisites
 
@@ -54,6 +54,6 @@ Via `` kubectl get nodes`` and `` kubectl logs -f -n karpenter -c controller -l 
 
 ## Clean-Up
 
-1. Delete application 
-2. Delete Policies: ``Terraform destroy`` confirm with ``yes``. (Within this folder)
-3. Delete Cluster: ``Terraform destroy`` confirm with ``yes``. (Within the Baseline Arhcitecture Folder)
+1. Delete application via  ``kubectl delete -f Teastore\teastore-alb.yaml`` from within the baseline architecture directory.
+2. Delete Policies: ``Terraform destroy`` confirm with ``yes``. (Within this folder).
+3. Delete Cluster: ``Terraform destroy`` confirm with ``yes``. (Within the Baseline Arhcitecture Folder).
