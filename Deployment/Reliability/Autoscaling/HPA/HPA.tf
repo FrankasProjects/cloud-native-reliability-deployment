@@ -1,13 +1,13 @@
 provider "aws" {
-  region = "us-east-2"
+  region = var.region
 }
 
 data "aws_eks_cluster" "default" {
-  name = "eks-cluster" # todo set as variable
+  name = var.cluster_name
 }
 
 data "aws_eks_cluster_auth" "default" {
-  name = "eks-cluster"
+  name = var.cluster_name
 }
 
 provider "kubernetes" {

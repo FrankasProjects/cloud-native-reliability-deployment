@@ -8,7 +8,7 @@ variable "cpu_utilization" {
 variable "autoscaling_group_1" {
   type        = string
   default = "eks-node-group-2-20231001092444907400000019-7cc57546-f83d-5acb-40b7-315b4b59ab7d" # Adjust according to the created autoscaling group
-  description = "Name of the first autosclaing group."
+  description = "Name of the first autoscaling group."
 }
 
 variable "autoscaling_group_2" {

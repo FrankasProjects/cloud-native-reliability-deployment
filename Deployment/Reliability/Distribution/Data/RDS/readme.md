@@ -1,4 +1,4 @@
-# AWS RDS for Maria DB
+# AWS RDS for MariaDB
 This part of the repository replaces the MariaDB container of the TeaStore with an Amazon RDS Maria DB Instance in order to achieve physical data distribution. 
 For the creation of the database instance, AWS Controllers for Kubernetes (ACK) is used, which allows to create AWS resources within the Kubernetes environment. 
 
@@ -6,7 +6,7 @@ For the creation of the database instance, AWS Controllers for Kubernetes (ACK) 
 
 ## Prerequisites
 
-1. Provisioned EKS Cluster: [Baseline Architecture](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/BaselineArchitecture)
+1. Provisioned EKS Cluster: [Baseline Architecture](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/BaselineArchitecture).
 2. Connection to the cluster (via ``aws eks --region us-east-2 update-kubeconfig --name eks-cluster``)
 2. [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) - A command line tool for interacting with AWS services.
 3. [kubectl](https://kubernetes.io/de/docs/tasks/tools/install-kubectl/) - A command line tool for working with Kubernetes clusters.
@@ -15,11 +15,11 @@ For the creation of the database instance, AWS Controllers for Kubernetes (ACK) 
 
 ## Setup 
 
-1. Install ACK controller: ``bash controller.sh``
-2. Create Service account for ACK controller: ``bash IAM.sh``
-3. Check if the RDS controller is up an running: ``kubectl get deployments -n ack-system``
-4. Create the database (including security groups, anmespace, secrets, and subnet groups) via ``bash db.sh``  
-**NOTE:** The database takes up to 10 minutes to create
+1. Install ACK controller: ``bash controller.sh``.
+2. Create Service account for ACK controller: ``bash IAM.sh``.
+3. Check if the RDS controller is up an running: ``kubectl get deployments -n ack-system``.
+4. Create the database (including security groups, anmespace, secrets, and subnet groups) via ``bash db.sh``.  
+**NOTE:** The database takes up to 10 minutes to create.
 
 ### Physical Data Distribution
 
@@ -56,17 +56,16 @@ Following this approach, cascading read replicas are created. AWS RDS allows up 
 
 ### Deploy TeaStore
 
-Execute `` kubectl create -f TeaStore\teastore-rds.yaml `` (TODO adjust link)
-
+Execute `` kubectl create -f TeaStore\teastore-rds.yaml `` 
 
 ## Clean Up
 
 The repository created:
-1. Shutdown Teastore: ``kubectl delete -f TeaStore\teastore-rds.yaml``
-2. RDS Controller within the cluster: Deletes with the cluster
-3. Namespace within the cluster: Deletes with the cluster
-4. Database Instance: ``kubectl delete -f rds-mariadb.yaml``
-5. ReadReplicas: ``aws rds delete-db-instance --db-instance-identifier second-read-replica --skip-final-snapshot`` (Replace name also with second-read-replicas)
-6. Secret within the cluster ``kubectl delete secret maria-db-password``
-7. IAM Role for the RDS Controller: ``aws iam delete-role --role-name ack-rds-controller``
-8. Subnet Group ``kubectl delete -f db-subnet-groups.yaml``
+1. Shutdown Teastore: ``kubectl delete -f TeaStore\teastore-rds.yaml``.
+2. RDS Controller within the cluster: Deletes with the cluster.
+3. Namespace within the cluster: Deletes with the cluster.
+4. Database Instance: ``kubectl delete -f rds-mariadb.yaml``.
+5. ReadReplicas: ``aws rds delete-db-instance --db-instance-identifier second-read-replica --skip-final-snapshot`` (Replace name also with second-read-replicas).
+6. Secret within the cluster ``kubectl delete secret maria-db-password``.
+7. IAM Role for the RDS Controller: ``aws iam delete-role --role-name ack-rds-controller``.
+8. Subnet Group ``kubectl delete -f db-subnet-groups.yaml``.

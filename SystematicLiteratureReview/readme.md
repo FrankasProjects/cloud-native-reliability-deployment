@@ -179,7 +179,7 @@ ResultSet (.bib): [8_final_literatureset](https://github.com/FrankasProjects/clo
 <a id="item-eleven"></a>
 
 ## 5. Full-text-based filtering (Detailed Analysis)
-This table diplays all papers scanned within step x and provides the reason for inclusion / removal.  
+This table diplays all papers scanned within step 3.3 and provides the reason for inclusion / removal.  
 The first column represents for each articles its position within all articles / its position of included or excluded articles.  
 
 Number / (Included / Excluded) | Author | Title | Year | Publication Type | Content | Included | Reason for Inclusion / Removal |

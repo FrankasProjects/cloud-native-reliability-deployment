@@ -6,10 +6,10 @@ Therefore, first the EFS is created via a Terraform script. Afterwards the stora
 
 The physical distribution across availability zones requires the usage and creation of the AWS EFS instead of the already provisioned AWS EBS, which is only accessible from within the same availability zone. For the distribution itself, the mechanisms from the service distribution, here pod affinitiy rules were applied with soft constraints to distribute pods but ensure that all repicas are scheduled accordingly. 
 
-## Prerequisistes
+## Prerequisites
 
-1. Provisioned EKS Cluster: [Baseline Architecture](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/BaselineArchitecture)
-2. Connection to the cluster (via ``aws eks --region us-east-2 update-kubeconfig --name eks-cluster``)
+1. Provisioned EKS Cluster: [Baseline Architecture](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/BaselineArchitecture).
+2. Connection to the cluster (via ``aws eks --region us-east-2 update-kubeconfig --name eks-cluster``).
 3. [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) - A command line tool for interacting with AWS services.
 4. [kubectl](https://kubernetes.io/de/docs/tasks/tools/install-kubectl/) - A command line tool for working with Kubernetes clusters.
 5. [eksctl](https://eksctl.io/) - A command line tool for working with EKS clusters.

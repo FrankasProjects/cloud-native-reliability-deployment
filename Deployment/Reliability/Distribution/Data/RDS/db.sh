@@ -86,5 +86,5 @@ spec:
     key: password
 EOF
 
-##Create DB
+## Create DB
 kubectl apply -f rds-mariadb.yaml

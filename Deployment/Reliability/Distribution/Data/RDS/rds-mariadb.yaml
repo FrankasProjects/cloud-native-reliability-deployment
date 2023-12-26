@@ -10,7 +10,7 @@ spec:
   dbName: "teadb"
   dbSubnetGroupName: "mariadb-subnets"
   vpcSecurityGroupIDs:
-  - "sg-0b6096a8ab37b3735"
+  - "sg-0b6096a8ab37b3735" #adjust
   engine: mariadb
   engineVersion: "10.6"
   multiAZ: true

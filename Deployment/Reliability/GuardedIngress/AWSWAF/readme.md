@@ -5,8 +5,8 @@ Both concepts are provided within two Terraform scripts, to adhere to the modula
 
 ## Requirements:
 
-1. Provisioned EKS Cluster: [Baseline Architecture](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/BaselineArchitecture)
-2. Connection to the cluster (via ``aws eks --region us-east-2 update-kubeconfig --name eks-cluster``)
+1. Provisioned EKS Cluster: [Baseline Architecture](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/BaselineArchitecture).
+2. Connection to the cluster (via ``aws eks --region us-east-2 update-kubeconfig --name eks-cluster``).
 2. [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) - A command line tool for interacting with AWS services.
 3. [kubectl](https://kubernetes.io/de/docs/tasks/tools/install-kubectl/) - A command line tool for working with Kubernetes clusters.
 4. [eksctl](https://eksctl.io/) - A command line tool for working with EKS clusters.

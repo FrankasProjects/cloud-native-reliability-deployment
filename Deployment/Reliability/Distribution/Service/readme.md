@@ -1,11 +1,11 @@
 # Service Distribution
 
-This part of the repository TODO
+This part of the repository compares strategies to distribute stateless services of the microservice-reference application TeaStore.
 
 ## Prerequisites
 
-1. Provisioned EKS Cluster: [Baseline Architecture](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/BaselineArchitecture)
-2. Connection to the cluster (via ``aws eks --region us-east-2 update-kubeconfig --name eks-cluster``)
+1. Provisioned EKS Cluster: [Baseline Architecture](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/BaselineArchitecture).
+2. Connection to the cluster (via ``aws eks --region us-east-2 update-kubeconfig --name eks-cluster``).
 3. [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) - A command line tool for interacting with AWS services.
 4. [kubectl](https://kubernetes.io/de/docs/tasks/tools/install-kubectl/) - A command line tool for working with Kubernetes clusters.
 
@@ -25,7 +25,7 @@ Two scenarios with soft and hard constraints were implemented. These show that w
 1. ``kubectl create -f TeaStore\teastore-distribution-3.yaml`` (hard constraint).
 2. ``kubectl create -f TeaStore\teastore-distribution-4.yaml`` (soft constraint).
 
-## CleanUp
+## Clean Up
 
 Ensure that first the application is removed before destroying the cluster.
 1. `` kubectl delete -f  TeaStore\teastore-distribution-x.yaml ``. This removes the TeaStore from the cluster. Replace x + ensure to be within this directoy.

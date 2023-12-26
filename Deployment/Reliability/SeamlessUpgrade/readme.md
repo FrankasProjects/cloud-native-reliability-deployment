@@ -1,6 +1,6 @@
 # Seamless Updates
 
-This part of the repository implements two strategies for updating the TeaStore application. Next to the rolling upgrade strategy,w hich is managed by K8s, a self-managed blue-green strategy is proposed. 
+This part of the repository implements two strategies for updating the TeaStore application. Next to the rolling upgrade strategy, which is managed by K8s, a self-managed blue-green strategy is proposed. 
 
 ## Rolling Upgrade of WebUI
 
@@ -8,16 +8,16 @@ The rolling upgrade strategy managed by K8s iteratively updates the application.
 
 ### Prerequisites
 
-1. Provisioned EKS Cluster: [Baseline Architecture](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/BaselineArchitecture)
-2. Connection to the cluster (via ``aws eks --region us-east-2 update-kubeconfig --name eks-cluster``)
+1. Provisioned EKS Cluster: [Baseline Architecture](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/BaselineArchitecture).
+2. Connection to the cluster (via ``aws eks --region us-east-2 update-kubeconfig --name eks-cluster``).
 3. [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) - A command line tool for interacting with AWS services.
 4. [kubectl](https://kubernetes.io/de/docs/tasks/tools/install-kubectl/) - A command line tool for working with Kubernetes clusters.
 
 ### Update steps
 
-1. Deploy (here the outdated) version of TeaStore application via: ``kubectl apply -f TeaStore\teastore-upgrade.yaml``
+1. Deploy (here the outdated) version of TeaStore application via: ``kubectl apply -f TeaStore\teastore-upgrade.yaml``.
 2. Set the image to ``:latest instead of :1.4.2``.
-3. Run `` kubectl apply -f TeaStore\teasture-upgrade.yaml``
+3. Run `` kubectl apply -f TeaStore\teasture-upgrade.yaml``.
 4. Monitor Update process: During the update process, 4 isntead of 3 replicas should be created. Status should change from running to terminated for outdated pods one after another. AGE indicates which pods are newly created (with the latest version) and which ones are outdated.
 
 Alternatively, explicitly update specific image via:
@@ -37,20 +37,20 @@ Outdated deployments are labelled as color:blue, while the latest version is lab
 
 ### Prerequisites
 
-1. Provisioned EKS Cluster: [Baseline Architecture](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/BaselineArchitecture)
-2. Connection to the cluster (via ``aws eks --region us-east-2 update-kubeconfig --name eks-cluster``)
+1. Provisioned EKS Cluster: [Baseline Architecture](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/BaselineArchitecture).
+2. Connection to the cluster (via ``aws eks --region us-east-2 update-kubeconfig --name eks-cluster``).
 3. [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) - A command line tool for interacting with AWS services.
 4. [kubectl](https://kubernetes.io/de/docs/tasks/tools/install-kubectl/) - A command line tool for working with Kubernetes clusters.
 
 ### Update steps
 
-1. Deploy (here the outdated) version of TeaStore application via: ``kubectl apply -f TeaStore\teastore-bg.yaml``
+1. Deploy (here the outdated) version of TeaStore application via: ``kubectl apply -f TeaStore\teastore-bg.yaml``.
 2. Set the image to ``:latest instead of :1.4.2``.
-3. Update the webui deployment to ``color:green`` where #adjust (1)
-3. Run `` kubectl apply -f TeaStore\teasture-bg.yaml``
-5. This creates a second deployment of the webui with the latest image (``kubectl -n teastore-namespace get deployments``)
-6. Redirect traffic to the latest deployment by changing ``color:green`` for the WebUI service where #adjust (2)
-7. Delete teastore-webui-blue `` kubectl -n teastore-namespace delete deployment teastore-webui-blue ``
+3. Update the webui deployment to ``color:green`` where #adjust (1).
+3. Run `` kubectl apply -f TeaStore\teasture-bg.yaml``.
+5. This creates a second deployment of the webui with the latest image (``kubectl -n teastore-namespace get deployments``).
+6. Redirect traffic to the latest deployment by changing ``color:green`` for the WebUI service where #adjust (2).
+7. Delete teastore-webui-blue `` kubectl -n teastore-namespace delete deployment teastore-webui-blue ``.
 
 ### CleanUp
 

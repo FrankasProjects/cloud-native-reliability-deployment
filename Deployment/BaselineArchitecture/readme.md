@@ -5,7 +5,7 @@ This section introduces the deployment steps required to deploy the TeaStore [1]
 
 ## Architecture
 
-The general cluster architecture consists of a VPC with six subnets (three private and three public), each in a different availability zone. Here, the *us-east-2* region is used. The cluster itself consists of two managed node groups, one containing one node and the other containing two nodes. This repo applies the module structure enabled by Terraform by splitting the cluster creation into two modules. The first module (eks-cluster-creation) creates the requried VPC, subnets, policies, and the EKS cluster itself with the two node groups. Afterwards, the second module isntalls the requried add-ons in the cluster, here the aws-load-balancer controller that is required to installs the application later. 
+The general cluster architecture consists of a VPC with six subnets (three private and three public), each in a different availability zone. Here, the *us-east-2* region is used. The cluster itself consists of two managed node groups, one containing one node and the other containing two nodes. This repo applies the module structure enabled by Terraform by splitting the cluster creation into two modules. The first module (eks-cluster-creation) creates the requried VPC, subnets, policies, and the EKS cluster itself with the two node groups. Afterwards, the second module installs the requried add-ons in the cluster, here the aws-load-balancer controller that is required to deploy the application later. 
 
 
 ## Requirements
@@ -30,7 +30,7 @@ The general cluster architecture consists of a VPC with six subnets (three priva
 
 ## Connect to the cluster
 
-Via kubectl you can connect to the cluster, deploy the application and get the pods, services, deployments.
+Via kubectl connect to the cluster, deploy the application and get the pods, services, deployments.
 
 To connect to the cluster execute: ``aws eks --region us-east-2 update-kubeconfig --name eks-cluster``. Adapt region and name if required.
 
@@ -51,7 +51,7 @@ In order to delete the application, as well as the terraform cluster conduct:
 2. ``Terraform destroy`` confirm with ``yes``. This may take up to 20 min. 
 
 
-**NOTE**  
+**NOTE: **  
 If the application is not removed via ``kubectl delete`` before ``terraform destroy`` is called, Terraform is not able to delete all resources. The teastore.yaml triggers the creation of a resource of type load balancer which is connected to subnets within the VPC but not managed by terraform. Terraform will be unable to remove the subnets and the load balancer has to be removed via the console.
 
 [1] https://github.com/DescartesResearch/TeaStore

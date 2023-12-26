@@ -277,7 +277,7 @@ metadata:
     app: teastore
     run: teastore-webui
 spec:
-  replicas: 3 # adjust 
+  replicas: 3  
   selector:
     matchLabels:
       app: teastore

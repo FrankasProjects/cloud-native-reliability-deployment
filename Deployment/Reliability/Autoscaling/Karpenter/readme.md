@@ -4,8 +4,8 @@ Karpenter serves as an alternative to the [Cluster Autoscaler](https://github.co
 
 ## Prerequisites
 
-1. Provisioned EKS Cluster: [Baseline Architecture](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/BaselineArchitecture)
-2. Connection to the cluster (via ``aws eks --region us-east-2 update-kubeconfig --name eks-cluster``)
+1. Provisioned EKS Cluster: [Baseline Architecture](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/BaselineArchitecture).
+2. Connection to the cluster (via ``aws eks --region us-east-2 update-kubeconfig --name eks-cluster``).
 3. [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) - A command line tool for interacting with AWS services.
 4. [kubectl](https://kubernetes.io/de/docs/tasks/tools/install-kubectl/) - A command line tool for working with Kubernetes clusters.
 5. [eksctl](https://eksctl.io/) - A command line tool for working with EKS clusters.
@@ -17,7 +17,7 @@ Karpenter serves as an alternative to the [Cluster Autoscaler](https://github.co
 1. Initialize the repository with:  ``Terraform init``.
 2. Install Karpenter on the AWS EKS cluster: ``Terraform apply`` and confirm with ``yes``.
 3. Since the AWS EKS is created seperately, the AWS Configmap has to be updated. ``kubectl edit configmap aws-auth -n kube-system``. 
-    The configmap should resemble the following: ensure that AccountID is replaced accordingly.
+    The configmap should resemble the following: ensure that AccountID and NodeGroupIDs are replaced accordingly.
 ```
     apiVersion: v1
     kind: ConfigMap

@@ -29,7 +29,7 @@ In order to make use of the installed VPA, a vpa.yaml resource has to be created
 10. check the Recommendations of the VPA: ``kubectl -n teastore-namespace describe vpa teastore-deployment-vpa-webui`` (or -recommender, -persistence ...) **NOTE:** This may take a few minutes until some recommendations show up.
 
 
-## Clean-Up
+## Clean Up
 
 1. Delete the application: ``kubectl delete -f TeaStore\teastore-alb.yaml`` from within the baseline architecture directory.
 2. Remove the VPA rules: ``kubectl delete -f vpa.yaml``.

@@ -1,22 +1,22 @@
 # Implementation of EC2 Autoscaling Group Policies
 
-This part of the repository complements the AWS EKS Cluster creation by adding policies to specifiy the scaling behavior of the EC2 Cluster Autoscaling groups. Per default (using the EKS creation module) node groups are created as EC2 Autoscaling Groups. Thereby, already a minimum, mamximum and desired amount of nodes are specified per node group. In order to enable the automatic scaling, policies that define CPU and memory utilization thresholds are defined. 
+This part of the repository complements the AWS EKS Cluster creation by adding policies to specifiy the scaling behavior of the EC2 Cluster Autoscaling groups. Per default (using the EKS creation module) node groups are created as EC2 Autoscaling Groups. Thereby, already a minimum, maximum, and desired amount of nodes are specified per node group. In order to enable the automatic scaling, policies that define CPU and memory utilization thresholds are defined. 
 
 **NOTE 1**  
 This part of the project only covers utilization thesholds. Scaling up the cluster when nodes run out of capacity to schedule new nodes is implemented via a [Cluster Autoscaler](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/Reliability/Autoscaling/ClusterAutoscaler)
 
 **NOTE 2**   
-EC2 Autoscaling groups are implicitly created by the EKS module. Names or tags are not yet available, therefore the resulting name has to be manually inserted here (see step 1 of setup).  
+EC2 Auto Scaling Groups are implicitly created by the EKS module. Names or tags are not yet available, therefore the resulting name has to be manually inserted here (see step 1 of setup).  
 The [EKS cluster creation](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/BaselineArchitecture) prints the names as output variables within the command line tool after a successful cluster creation. Alternatively, the names can be obtained from the AWS console.
 
 ## Prerequisites 
 
 1. Provisioned EKS Cluster: [Baseline Architecture](https://github.com/frankakn/reliability-deployment/tree/main/Deployment/BaselineArchitecture).
-2. Names of Autoscaling Groups (Will be displayed after successful creation of the EKS cluster creation script).
+2. Names of Auto Scaling Groups (Will be displayed after successful creation of the EKS cluster creation script).
 
 ## Setup
 
-1. **Insert the names of the auto-scaling groups in the variables.tf** (Marked as output within the CMD, alternatively obtain from AWS console.)
+1. **Insert the names of the Auto Scaling Groups in the variables.tf** (Marked as output within the CMD, alternatively obtain from AWS console.)
 2. [Optional] adjust the CPU utilization if required. 
 3. Open a CMD / navigate into this directory.
 4. Initialize the repo: ``Terraform init``. This initializes the working directory by installing plugins and the modules created in the project structure. 

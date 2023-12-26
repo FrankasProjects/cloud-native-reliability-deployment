@@ -1,9 +1,9 @@
 provider "aws" {
-  region = "us-east-2"
+  region = var.region
 }
 
 data "aws_eks_cluster" "eks" {
-  name = "eks-cluster"  # Ersetze dies durch den Namen deines EKS-Clusters
+  name = var.cluster_name
 }
 
 output "eks_vpc_id" {
